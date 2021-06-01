@@ -38,29 +38,33 @@
             margin: 2px 2px;
         }
 
-        .ab{
+        .ab {
             border: none;
             color: white;
             background-color: rgb(11, 137, 255);
             width: 30px;
             border-radius: 2px;
         }
-        .ab:hover{
+
+        .ab:hover {
             background-color: rgb(0, 116, 194);
         }
-        .ab:active{
+
+        .ab:active {
             background-color: rgb(0, 73, 184);
         }
-        .at{
-            border:none;
+
+        .at {
+            border: none;
             padding: 2px 0px;
-            border-bottom:2px solid rgb(11, 137, 255);;
+            border-bottom: 2px solid rgb(11, 137, 255);
+            ;
             width: 150px;
         }
-        
-        .at:focus{
+
+        .at:focus {
             outline: none;
-            
+
         }
 
         .tasks {
@@ -70,22 +74,21 @@
     </style>
 
     <div class="add">
-        <form action="">
+        <form action="" id="form">
             <span>
                 <input type="text" class="at" placeholder="Enter Task">
-                <input type="submit" value="+" class="ab">  
+                <input type="submit" value="+" class="ab">
             </span>
         </form>
     </div>
 
     <div class="tasks">
         <ul id="taskList">
-            <li>Himanshu</li>
-            <li>Jangid</li>
-            <li>Ki Jai Ho</li>
+
         </ul>
     </div>
-    <script src=”popup.js”></script>
+
+    <script src="background.js"></script>
 
 </body>
 
