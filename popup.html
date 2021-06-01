@@ -16,6 +16,10 @@
             padding: 0;
         }
 
+        body {
+            padding: 3px;
+        }
+
         span {
             display: flex;
         }
@@ -28,6 +32,7 @@
         ul li {
             padding: 3px 4px;
             width: 100%;
+            position: relative;
         }
 
         ul li:hover {
@@ -71,6 +76,23 @@
             display: flex;
             justify-content: start;
         }
+
+        button {
+            position: absolute;
+            background-color: rgb(253, 88, 82);
+            border: none;
+            width: 20px;
+            color: white;
+            
+        }
+
+        
+
+
+
+        button:hover {
+            background-color: rgb(216, 73, 73);
+        }
     </style>
 
     <div class="add">
@@ -84,7 +106,10 @@
 
     <div class="tasks">
         <ul id="taskList">
-
+            <li>
+                <button onclick="remove(event)">-</button>
+                <p>Hello </p>
+            </li>
         </ul>
     </div>
 
