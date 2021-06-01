@@ -1,6 +1,7 @@
 var taskList = document.getElementById("taskList");
 var form = document.getElementById("form");
-var tasks = []
+var tasks = [];
+
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -8,34 +9,48 @@ form.addEventListener("submit", (e) => {
         tasks.push(document.getElementsByClassName("at")[0].value)
         render();
     }
-
     document.getElementsByClassName("at")[0].value = "";
 })
 
 
 function render() {
-
+    console.log("render called")
     taskList.innerHTML = "";
     tasks.forEach((val, index) => {
         var item = document.createElement("li");
-        var data = "<button name='"+index+"' class='del'>-</button> <p> &nbsp; &nbsp; &nbsp; &nbsp;" + val + "</p>"
+        var data = "<button name='" + index + "' class='del'>-</button> <p> &nbsp; &nbsp; &nbsp; &nbsp;" + val + "</p>"
         item.innerHTML = data;
         taskList.appendChild(item);
     })
     addButtonEvents();
+    store();
 }
 
-function addButtonEvents(){
+function store() {
+    chrome.storage.local.set({ tasks: tasks });
+}
+
+function load() {
+    chrome.storage.local.get(['tasks'], function (result) {
+        tasks = result.tasks;
+        render()
+    });
+}
+
+function addButtonEvents() {
     var buttons = document.getElementsByClassName("del");
-    for(button of buttons){
-        button.addEventListener("click", (e)=>{
-            remove(e.srcElement.name)
+    for (button of buttons) {
+        button.addEventListener("click", (e) => {
+            remove(e.srcElement.name);
         })
     }
 }
 
 function remove(index) {
-   console.log(index);
-   tasks.splice(parseInt(index), 1);
-   render();
+    console.log(index);
+    tasks.splice(parseInt(index), 1);
+    render();
 }
+
+//initial load and render
+load();
