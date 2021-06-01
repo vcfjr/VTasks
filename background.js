@@ -2,7 +2,6 @@ var taskList = document.getElementById("taskList");
 var form = document.getElementById("form");
 var tasks = [];
 
-
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (document.getElementsByClassName("at")[0].value != "") {
@@ -32,8 +31,10 @@ function store() {
 
 function load() {
     chrome.storage.local.get(['tasks'], function (result) {
-        tasks = result.tasks;
-        render()
+        if (result.tasks) {
+            tasks = result.tasks;
+            render()
+        }
     });
 }
 
