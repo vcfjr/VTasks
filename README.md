@@ -14,6 +14,5 @@
 9. Pin this extension
 10. Start Using
 Done 👍🏻
-
 ***
 Made By VCF Devs
