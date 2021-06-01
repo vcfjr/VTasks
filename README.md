@@ -12,7 +12,8 @@
 7. Click "Load Unpacked"
 8. Select the extracted repository 
 9. Pin this extension
-
+10. Start Using
 Done 👍🏻
 
+***
 Made By VCF Devs
