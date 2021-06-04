@@ -15,7 +15,7 @@ form.addEventListener("submit", (e) => {
 function render() {
     console.log("render called")
     taskList.innerHTML = "";
-    tasks.reverse().forEach((val, index) => {
+    tasks.forEach((val, index) => {
         var item = document.createElement("li");
         var data;
         if (val.slice(0, 4) == "http") {
@@ -52,7 +52,6 @@ function addButtonEvents() {
 }
 
 function remove(index) {
-    console.log(index);
     tasks.splice(parseInt(index), 1);
     render();
 }
