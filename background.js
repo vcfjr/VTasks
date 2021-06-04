@@ -36,7 +36,7 @@ function store() {
 function load() {
     chrome.storage.local.get(['tasks'], function (result) {
         if (result.tasks) {
-            tasks = result.tasks;
+            tasks = result.tasks.reverse();
             render()
         }
     });
