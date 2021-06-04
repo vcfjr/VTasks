@@ -17,8 +17,14 @@ function render() {
     taskList.innerHTML = "";
     tasks.forEach((val, index) => {
         var item = document.createElement("li");
-        var data = "<button name='" + index + "' class='del'>-</button> <p> &nbsp; &nbsp; &nbsp; &nbsp;" + val + "</p>"
-        item.innerHTML = data;
+        var data;
+        console.log(val.slice(0, 4));
+        if (val.slice(0, 4) == "http") {
+            data = "<button name='" + index + "' class='del'>-</button> <p> &nbsp; &nbsp; &nbsp; &nbsp; <a href='" + val + "'>" + val + "</a></p>"
+        } else {
+            data = "<button name='" + index + "' class='del'>-</button> <p> &nbsp; &nbsp; &nbsp; &nbsp;" + val + "</p>"
+
+        } item.innerHTML = data;
         taskList.appendChild(item);
     })
     addButtonEvents();
