@@ -2,6 +2,8 @@ var taskList = document.getElementById("taskList");
 var form = document.getElementById("form");
 var tasks = [];
 
+// ! Fix Reverse Toggle
+// NOTE FIX IT 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (document.getElementsByClassName("at")[0].value != "") {
