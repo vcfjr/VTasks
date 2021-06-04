@@ -15,7 +15,7 @@ form.addEventListener("submit", (e) => {
 function render() {
     console.log("render called")
     taskList.innerHTML = "";
-    tasks.forEach((val, index) => {
+    tasks.reverse().forEach((val, index) => {
         var item = document.createElement("li");
         var data;
         if (val.slice(0, 4) == "http") {
