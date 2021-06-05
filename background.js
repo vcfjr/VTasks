@@ -2,8 +2,7 @@ var taskList = document.getElementById("taskList");
 var form = document.getElementById("form");
 var tasks = [];
 
-// ! Fix Reverse Toggle
-// NOTE FIX IT 
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (document.getElementsByClassName("at")[0].value != "") {
@@ -25,7 +24,7 @@ function render() {
         } else {
             data = "<button name='" + index + "' class='del'>-</button> <p> &nbsp; &nbsp; &nbsp; &nbsp;" + val + "</p>"
         } item.innerHTML = data;
-        taskList.appendChild(item);
+        taskList.prepend(item);
     })
     addButtonEvents();
     store();
@@ -38,7 +37,7 @@ function store() {
 function load() {
     chrome.storage.local.get(['tasks'], function (result) {
         if (result.tasks) {
-            tasks = result.tasks.reverse();
+            tasks = result.tasks;
             render()
         }
     });
