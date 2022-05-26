@@ -1,13 +1,25 @@
 {
-    "name": "VTasks",
-    "discription":"Simple Tasks No Login No Spam",
-    "version":"0.1",
-    "manifest_version":3,
-    "background":{
-        "service_worker":"background.js"
-    },
-    "permissions":["storage"],
-    "action":{
-        "default_popup":"popup.html"
+  "name": "VTasks",
+  "description": "Simple Tasks No Login No Spam",
+  "version": "0.1",
+  "manifest_version": 2,
+  "background": {
+    "page": "popup.html",
+    "persistent": false
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "<all_urls>",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["firebase.js", "background.js"],
+      "run_at": "document_end"
     }
+  ],
+  "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'; connect-src 'self' wss://*.firebaseio.com;"
 }
